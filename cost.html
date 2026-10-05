@@ -46,6 +46,47 @@
         result.innerHTML = "Costs are: "+costs;
     }
 </script>
+<br>
 
+<form>
+        <input type="radio" id="mul" name="op" value="mul"  checked >
+        <label for="mul">Product</label></br>
+      
+        <input type="radio" id="div" name="op" value="div">
+        <label for="div">Divide</label></br>
+
+        <input type="radio" id="add" name="op" value="add">
+        <label for="add">Sum</label></br>
+
+        <input type="radio" id="sub" name="op" value="sub">
+        <label for="div">Subtract</label></br>
+
+        <input type="button" onclick="chooseOp()" value="Commence operation">
+      </form>
+      <br>
+      <p id="result2">Results here...</p>
+      <script>
+        function chooseOp(){
+            count = document.getElementById("numberItems").value;
+            discountAt = document.getElementById("numberForDiscount").value;
+            result = document.getElementById("result2");
+            if (document.getElementById("mul").checked){
+                result.innerHTML = count * discountAt;
+            }
+            if (document.getElementById("div").checked){
+                if (discountAt != 0){
+                    result.innerHTML = count / discountAt;
+                } else {
+                    result.innerHTML = "DO NOT DIVIDE BY ZERO!!!!!!!!!!! FOOL"
+                }
+            }
+            if (document.getElementById("add").checked){
+                result.innerHTML = Number(count) + Number(discountAt);
+            }
+            if (document.getElementById("sub").checked){
+                result.innerHTML = count - discountAt;
+            }
+        }
+        </script>
 </body>
 </html> 
