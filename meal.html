@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html>
- <head>
-    <title>Webapps Assignment 6</title>
- </head>
-<body>
-<h1>Logan Masters meal planner</h1>
+    <head>
+        <title>Webapps Assignment 6</title>
+    </head>
+    <body>
+        <h1>Logan Masters meal planner</h1>
 
-<form>
-    <input type="checkbox" id="checkbox1" value="true" checked>
-    <label for="checkbox1">Breakfast</label>
-    <br>
+        <form>
+            <input type="checkbox" id="checkbox1" value="true" checked>
+            <label for="checkbox1">Breakfast</label>
+            <br>
 
-    <input type="checkbox" id="checkbox2" value="false">
-    <label for="checkbox2">Lunch</label>
-    <br>    
+            <input type="checkbox" id="checkbox2" value="false">
+            <label for="checkbox2">Lunch</label>
+            <br>    
 
-    <input type="checkbox" id="checkbox3" value="false">
-    <label for="checkbox3">Dinner</label>
-    <br>
+            <input type="checkbox" id="checkbox3" value="false">
+            <label for="checkbox3">Dinner</label>
+            <br>
 
-    <input type="button" onclick="choices()" value="Meal Plan Choices">
-    <br>
+            <input type="button" onclick="choices()" value="Meal Plan Choices">
+            <br>
+        </form>
+        <p id="result">Results here...</p>
 
-    <p id="result">Results here...</p>
-
-    <script>
-        my_meal_plan = {};
-        function choices(){
+        <script>
             my_meal_plan = {};
+            function choices(){
+                my_meal_plan = {};
 
-            my_meal_plan.breakfast = document.getElementById("checkbox1").checked;
-            my_meal_plan.lunch = document.getElementById("checkbox2").checked;
-            my_meal_plan.dinner = document.getElementById("checkbox3").checked;
+                my_meal_plan["breakfast"] = document.getElementById("checkbox1").checked;
+                my_meal_plan["lunch"] = document.getElementById("checkbox2").checked;
+                my_meal_plan["dinner"] = document.getElementById("checkbox3").checked;
 
-            document.getElementById("result").innerHTML = JSON.stringify(my_meal_plan);
-        }
-    </script>
-</body>
+                document.getElementById("result").innerHTML = JSON.stringify(my_meal_plan);
+            }
+            function updateMeal(){
+                my_meal_plan = {};
+
+                my_meal_plan["cuisine"] = document.getElementById("cuisine").value;
+                my_meal_plan["beverage"] = document.getElementById("beverage").value;
+
+                document.getElementById("result2").innerHTML = JSON.stringify(my_meal_plan);
+            }
+        </script>
+
+        <form>
+                <label for="cuisine">Enter cuisine type </label>
+                <input type="text" id="cuisine" value="Italian">
+                <br>
+
+                <label for="beverage">Enter beverage choice </label>
+                <input type="text" id="beverage" value="Water">
+                <br>
+
+                <input type="button" onclick="updateMeal()" value="Update Meal Plan">
+                <br>
+        </form>
+        <p id="result2">Results here...</p>
+    </body>
 </html> 
