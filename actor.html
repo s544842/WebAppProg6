@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> Webapps Program 6</title>
+ </head>
+<body>
+<h1>Actors by Logan Masters</h1>    
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_actor">Peter Pan</label>
+    <input type ="password" id="form1_actor" name="form1_actor" value="Robin Williams"> <br>
+
+    <label for="form1_guess">Who is the actor?</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="checkActor()" value="Check guess">
+</form>
+
+
+<p id="result">Result</p>
+
+<script> 
+    correct = 0;
+    notCorrect = 0;
+function checkActor(){
+    actor = document.getElementById("form1_actor").value
+    guess = document.getElementById("form1_guess").value
+
+    if(actor == guess){
+        correct ++
+        alert("That's right!");
+    } else {
+        notCorrect ++
+        alert("Better luck next time, sucker.")
+    }
+
+    out = document.getElementById("result")
+    out.innerHTML = "Correct: "+correct+" Incorrect: "+notCorrect+"\n"
+}
+</script>
+
+<div>
+    <img id="img1" src="img/mango.jpeg" height="150px" width="150px" onclick="updatePic()">
+    <script>
+        usePic = 1;
+        function updatePic(){
+            let img = document.getElementById("img1");
+            switch (usePic){
+                case 1:
+                    img.src = "img/apple.jpeg";
+                    usePic = 2;
+                    break
+                case 2:
+                    img.src = "img/strawberry.jpeg";
+                    usePic = 3;
+                    break
+                case 3:
+                    img.src = "img/mango.jpeg";
+                    usePic = 1;
+                    break
+            }
+        }
+    </script>
+</div>
+</body>
+</html> 
